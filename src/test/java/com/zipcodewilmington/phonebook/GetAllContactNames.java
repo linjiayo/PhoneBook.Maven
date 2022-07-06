@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class GetAllContactNames {
@@ -19,9 +20,12 @@ public class GetAllContactNames {
 
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
+        Collections.sort(actualNames);
+        List<String> expectedNames = Arrays.asList(names);
+        Collections.sort(expectedNames);
 
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
+        Assert.assertEquals(expectedNames, actualNames);
     }
 
     @Test
@@ -36,16 +40,19 @@ public class GetAllContactNames {
 
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
+        Collections.sort(actualNames);
+        List<String> expectedNames = Arrays.asList(names);
+        Collections.sort(expectedNames);
 
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
+        Assert.assertEquals(expectedNames, actualNames);
     }
 
     @Test
     public void test3() {
         // given
         PhoneBook phoneBook = new PhoneBook();
-        String[] names = new String[]{"Ashley", "Aaron", "Albert", "Alfred"};
+        String[] names = new String[]{"Aaron", "Ashley", "Albert", "Alfred"};
         for (int i = 0; i < names.length; i++) {
             String name = names[i];
             phoneBook.add(name, "");
@@ -53,8 +60,10 @@ public class GetAllContactNames {
 
         // when
         List<String> actualNames = phoneBook.getAllContactNames();
-
+        Collections.sort(actualNames);
+        List<String> expectedNames = Arrays.asList(names);
+        Collections.sort(expectedNames);
         // then
-        Assert.assertEquals(Arrays.asList(names), actualNames);
+        Assert.assertEquals(expectedNames, actualNames);
     }
 }
